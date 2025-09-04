@@ -1,18 +1,18 @@
 import { useState } from "react";
 import servers from "../data/server.js";
 
-function SearchBar() {
+function SearchBar({ handleSearch }) {
   const [gameName, setGameName] = useState("");
   const [tagLine, setTagLine] = useState("");
   const [serverId, setServerId] = useState(servers[0].id);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(gameName, tagLine, serverId);
+    const server = servers.find((server) => server.id === serverId);
 
-    // 1. fetch data with state variable
-    // 2. display returned data below search bar
+    handleSearch({ gameName, tagLine, server });
   }
+
   return (
     <div className="p-8 flex items-center justify-center">
       <img src="/src/assets/fire.png" alt="fire logo" className="size-8" />
@@ -37,7 +37,7 @@ function SearchBar() {
             value={serverId}
             name="server"
             id="server"
-            onChange={(e) => setServerId(e.target.value)}
+            onChange={(e) => setServerId(Number(e.target.value))}
           >
             {servers.map((server) => (
               <option value={server.id} key={server.id}>

@@ -1,9 +1,9 @@
-import SearchBar from "../../components/SearchBar";
+import Search from "../../components/Search";
 
 function Home() {
   return (
-    <div>
-      <SearchBar />
+    <div className="min-h-screen bg-gray-100">
+      <Search />
     </div>
   );
 }
