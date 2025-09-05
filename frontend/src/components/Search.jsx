@@ -2,6 +2,8 @@ import { useState } from "react";
 import searchPlayer from "../api/search";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
+import Lottie from "lottie-react";
+import loadingAnimation from "../assets/Loading Dots Blue.json";
 
 function Search() {
   const [results, setResults] = useState(null);
@@ -9,6 +11,7 @@ function Search() {
   const [error, setError] = useState(null);
 
   async function handleSearch({ gameName, tagLine, server }) {
+    setResults(null);
     setLoading(true);
     setError(null);
 
@@ -26,7 +29,7 @@ function Search() {
   return (
     <div>
       <SearchBar handleSearch={handleSearch} />
-      {loading && <p>Loading...</p>}
+      {loading && <Lottie animationData={loadingAnimation} />}
       {error && <p className="text-red-500">{error}</p>}
       {results && <SearchResults results={results} />}
     </div>
