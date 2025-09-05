@@ -1,13 +1,7 @@
-const API_KEY = import.meta.env.VITE_RIOT_API_KEY;
+const API = import.meta.env.VITE_API_URL;
 
 async function getChampionMastery(platform, puuid) {
-  const res = await fetch(
-    `https://${platform}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${puuid}`,
-    {
-      method: "GET",
-      headers: { "X-Riot-Token": API_KEY },
-    }
-  );
+  const res = await fetch(API + `/api/mastery/${platform}/${puuid}`);
   if (!res.ok) {
     throw new Error("error fetching data");
   }

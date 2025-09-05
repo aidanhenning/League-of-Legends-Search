@@ -1,13 +1,7 @@
-const API_KEY = import.meta.env.VITE_RIOT_API_KEY;
+const API = import.meta.env.VITE_API_URL;
 
 async function getMatchHistory(region, puuid) {
-  const res = await fetch(
-    `https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=10`,
-    {
-      method: "GET",
-      headers: { "X-Riot-Token": API_KEY },
-    }
-  );
+  const res = await fetch(API + `/api/matches/${region}/${puuid}`);
   if (!res.ok) {
     throw new Error("error fetching data");
   }

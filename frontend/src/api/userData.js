@@ -1,13 +1,7 @@
-const API_KEY = import.meta.env.VITE_RIOT_API_KEY;
+const API = import.meta.env.VITE_API_URL;
 
 async function getUserData(region, gameName, tagLine) {
-  const res = await fetch(
-    `https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`,
-    {
-      method: "GET",
-      headers: { "X-Riot-Token": API_KEY },
-    }
-  );
+  const res = await fetch(API + `/api/user/${region}/${gameName}/${tagLine}`);
   if (!res.ok) {
     throw new Error("error fetching data");
   }
