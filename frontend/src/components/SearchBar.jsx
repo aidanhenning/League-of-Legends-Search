@@ -15,27 +15,26 @@ function SearchBar({ handleSearch }) {
   }
 
   return (
-    <div className="p-8 flex items-center justify-center gap-1">
-      <img src="/src/assets/fire.png" alt="fire logo" className="size-8" />
-      <search>
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-row gap-1 bg-gray-200 rounded-lg shadow-lg p-4"
-        >
-          <input
-            value={gameName}
-            type="text"
-            placeholder="Enter Game Name"
-            onChange={(e) => setGameName(e.target.value)}
-            className="focus:outline-none"
-          />
-          <input
-            value={tagLine}
-            type="text"
-            placeholder="Enter Tag Line"
-            onChange={(e) => setTagLine(e.target.value)}
-            className="focus:outline-none"
-          />
+    <search className="bg-gray-200 rounded-lg shadow-lg p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-row items-center justify-between"
+      >
+        <input
+          value={gameName}
+          type="text"
+          placeholder="Enter Game Name"
+          onChange={(e) => setGameName(e.target.value)}
+          className="focus:outline-none"
+        />
+        <input
+          value={tagLine}
+          type="text"
+          placeholder="Enter Tag Line"
+          onChange={(e) => setTagLine(e.target.value)}
+          className="focus:outline-none"
+        />
+        <div className="flex flex-row gap-6">
           <select
             value={serverId}
             name="server"
@@ -52,9 +51,9 @@ function SearchBar({ handleSearch }) {
           <button type="submit" className="px-2 hover:cursor-pointer">
             <IoSearchSharp />
           </button>
-        </form>
-      </search>
-    </div>
+        </div>
+      </form>
+    </search>
   );
 }
 
