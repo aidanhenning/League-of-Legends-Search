@@ -1,10 +1,16 @@
+import { useNavigate } from "react-router-dom";
+
 function SearchResults({ results }) {
-  const { userData, summonerData } = results;
+  const { userData, summonerData, server } = results;
+
+  const navigate = useNavigate();
 
   return (
     <div
       onClick={() =>
-        navigate(`/lol/profile/${serverID}/${gameName}/${tagLine}`)
+        navigate(
+          `/lol/summoner/${server.id}/${userData.gameName}/${userData.tagLine}`
+        )
       }
       className="bg-gray-200 rounded-lg shadow-lg p-4 hover:cursor-pointer"
     >

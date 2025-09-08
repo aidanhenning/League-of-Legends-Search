@@ -17,7 +17,7 @@ function Search() {
 
     try {
       const data = await searchPlayer({ gameName, tagLine, server });
-      setResults(data);
+      setResults({ ...data, server });
     } catch (error) {
       console.error(error);
       setError(error.message || "Something went wrong");
