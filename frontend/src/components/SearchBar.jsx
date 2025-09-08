@@ -15,32 +15,32 @@ function SearchBar({ handleSearch }) {
   }
 
   return (
-    <search className="bg-gray-200 rounded-lg shadow-lg p-4">
+    <search className="md:bg-gray-200 rounded-lg md:shadow-lg py-4 md:p-4">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-row items-center justify-between"
+        className="flex flex-col md:flex-row items-center justify-between gap-1"
       >
         <input
           value={gameName}
           type="text"
           placeholder="Enter Game Name"
           onChange={(e) => setGameName(e.target.value)}
-          className="focus:outline-none"
+          className="w-full p-1 bg-gray-200 rounded-sm md:rounded-none focus:outline-none"
         />
         <input
           value={tagLine}
           type="text"
           placeholder="Enter Tag Line"
           onChange={(e) => setTagLine(e.target.value)}
-          className="focus:outline-none"
+          className="w-full p-1 bg-gray-200 rounded-sm md:rounded-none focus:outline-none"
         />
-        <div className="flex flex-row gap-6">
+        <div className="flex flex-col md:flex-row gap-1 md:gap-6 w-full">
           <select
             value={serverId}
             name="server"
             id="server"
             onChange={(e) => setServerId(Number(e.target.value))}
-            className="focus:outline-none hover:cursor-pointer"
+            className="p-1 bg-gray-200 rounded-sm md:rounded-none focus:outline-none hover:cursor-pointer"
           >
             {servers.map((server) => (
               <option value={server.id} key={server.id} className="bg-gray-200">
@@ -48,7 +48,10 @@ function SearchBar({ handleSearch }) {
               </option>
             ))}
           </select>
-          <button type="submit" className="px-2 hover:cursor-pointer">
+          <button
+            type="submit"
+            className="flex items-center justify-center rounded-sm md:rounded-none w-full !bg-gray-200 p-2 hover:cursor-pointer"
+          >
             <IoSearchSharp />
           </button>
         </div>

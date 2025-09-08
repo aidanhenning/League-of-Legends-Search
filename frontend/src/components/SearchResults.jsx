@@ -12,7 +12,7 @@ function SearchResults({ results }) {
           `/lol/summoner/${server.id}/${userData.gameName}/${userData.tagLine}`
         )
       }
-      className="bg-gray-200 rounded-lg shadow-lg p-4 hover:cursor-pointer"
+      className="bg-gray-200 rounded-lg shadow-lg p-4 hover:cursor-pointer mb-10"
     >
       {userData && summonerData && (
         <div className="flex flex-row items-center justify-between">

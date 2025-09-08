@@ -27,11 +27,15 @@ function Search() {
   }
 
   return (
-    <div className="flex flex-col gap-2 w-2/5 m-auto pt-60">
-      <div className="flex flex-row items-center justify-center gap-2 mb-2">
-        <img src="/src/assets/fire.png" alt="fire logo" className="size-30" />
-        <div className="flex flex-col gap-1">
-          <h1 className="text-white text-4xl font-bold">
+    <div className="flex flex-col gap-2 w-3/5 md:w-2/5 m-auto pt-30 md:pt-60">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-2 mb-2">
+        <img
+          src="/src/assets/fire.png"
+          alt="fire logo"
+          className="size-40 md:size-30"
+        />
+        <div className="flex flex-col gap-2 md:gap-1 items-center md:items-start">
+          <h1 className="text-white text-4xl font-bold text-center md:text-start">
             League of Legends Player Search
           </h1>
           <div className="flex flex-row items-center gap-2">
@@ -40,7 +44,7 @@ function Search() {
               alt="riot fist bump"
               className="size-4"
             />
-            <p className="text-white ">Riot Compliant</p>
+            <p className="text-white">Riot Compliant</p>
           </div>
         </div>
       </div>
