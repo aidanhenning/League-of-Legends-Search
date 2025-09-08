@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Details from "./pages/Details/Details";
+import Overview from "./pages/Details/Overview";
+import Champions from "./pages/Details/Champions";
+import Mastery from "./pages/Details/Mastery";
 
 function App() {
   return (
@@ -8,7 +10,15 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route
         path="/lol/summoner/:serverId/:gameName/:tagLine"
-        element={<Details />}
+        element={<Overview />}
+      />
+      <Route
+        path="/lol/summoner/:serverId/:gameName/:tagLine/Champions"
+        element={<Champions />}
+      />
+      <Route
+        path="/lol/summoner/:serverId/:gameName/:tagLine/Mastery"
+        element={<Mastery />}
       />
     </Routes>
   );
