@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import getDetails from "../../api/profile";
 import servers from "../../data/server";
 import Navbar from "../../components/Navbar";
 import DetailsHeader from "../../components/DetailsHeader";
 import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/Loading Dots Blue.json";
-import DetailsNav from "../../components/DetailsNav";
 
 function Mastery() {
   const [results, setResults] = useState(null);
@@ -36,15 +35,37 @@ function Mastery() {
     fetchData();
   }, []);
 
-  console.log(results);
-
   return (
-    <div>
-      <div>
-        <Navbar />
-        <DetailsHeader />
-        <DetailsNav serverId={serverId} gameName={gameName} tagLine={tagLine} />
+    <div className="min-h-screen bg-gray-700">
+      <Navbar />
+      <div className="w-3/5 m-auto">
+        {results && (
+          <>
+            <DetailsHeader results={results} />
+            <div className="flex flex-row w-full bg-gray-800">
+              <NavLink
+                to={`/lol/summoner/${serverId}/${gameName}/${tagLine}`}
+                className="py-1.5 px-3 text-white hover:cursor-pointer hover:bg-gray-700"
+              >
+                Overview
+              </NavLink>
+              <NavLink
+                to={`/lol/summoner/${serverId}/${gameName}/${tagLine}/champions`}
+                className="py-1.5 px-3 text-white hover:cursor-pointer hover:bg-gray-700"
+              >
+                Champions
+              </NavLink>
+              <NavLink
+                to={`/lol/summoner/${serverId}/${gameName}/${tagLine}/mastery`}
+                className="py-1.5 px-3 text-white hover:cursor-pointer hover:bg-gray-700 border border-t-0 border-l-0 border-r-0 border-b-rose-400"
+              >
+                Mastery
+              </NavLink>
+            </div>
+          </>
+        )}
         <div>
+          {/* Add components here */}
           {loading && <Lottie animationData={loadingAnimation} />}
           {error && <p className="text-red-500">{error}</p>}
         </div>
