@@ -1,3 +1,5 @@
+import { DDRAGON_VERSION } from "../config/constants";
+
 function DetailsHeader({ results }) {
   return (
     <div className="flex flex-row gap-3 pt-20 mb-5">
@@ -6,7 +8,7 @@ function DetailsHeader({ results }) {
           {results.summonerData.summonerLevel}
         </span>
         <img
-          src={`https://ddragon.leagueoflegends.com/cdn/15.15.1/img/profileicon/${results.summonerData.profileIconId}.png`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/profileicon/${results.summonerData.profileIconId}.png`}
           alt="player icon"
           className="max-w-[85px] rounded-lg border border-rose-400"
         />

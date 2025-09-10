@@ -1,3 +1,5 @@
+import { DDRAGON_VERSION } from "../config/constants";
+
 function MatchCard({ match, player }) {
   const win = player.win;
   const { gameMode, gameDuration, participants } = match.info;
@@ -28,11 +30,11 @@ function MatchCard({ match, player }) {
     return spellMap[id] || "SummonerFlash"; // fallback
   }
 
-  const championIconUrl = `https://ddragon.leagueoflegends.com/cdn/15.17.1/img/champion/${player.championName}.png`;
-  const spell1Url = `https://ddragon.leagueoflegends.com/cdn/15.17.1/img/spell/${getSummonerSpellName(
+  const championIconUrl = `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/champion/${player.championName}.png`;
+  const spell1Url = `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/spell/${getSummonerSpellName(
     player.summoner1Id
   )}.png`;
-  const spell2Url = `https://ddragon.leagueoflegends.com/cdn/15.17.1/img/spell/${getSummonerSpellName(
+  const spell2Url = `https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/spell/${getSummonerSpellName(
     player.summoner2Id
   )}.png`;
 
@@ -55,7 +57,7 @@ function MatchCard({ match, player }) {
 
   return (
     <div
-      className={`flex flex-row justify-between gap-4 p-2 rounded-sm text-white ${
+      className={`flex flex-row justify-between items-center gap-4 p-2 rounded-sm text-white ${
         win ? "bg-blue-500/20" : "bg-red-500/20"
       }`}
     >
@@ -97,13 +99,13 @@ function MatchCard({ match, player }) {
         <span className="text-gray-400">{player.totalMinionsKilled} CS</span>
       </div>
 
-      <div className="grid grid-cols-2 items-center gap-1">
+      <div className="flex flex-row items-center gap-1">
         <div className="grid grid-cols-3 gap-1 items-center">
           {items.map((itemId, index) =>
             itemId !== 0 ? (
               <img
                 key={index}
-                src={`https://ddragon.leagueoflegends.com/cdn/15.17.1/img/item/${itemId}.png`}
+                src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/item/${itemId}.png`}
                 alt={`Item ${index}`}
                 className="w-6 h-6 rounded"
               />
@@ -113,7 +115,7 @@ function MatchCard({ match, player }) {
           )}
         </div>
         <img
-          src={`https://ddragon.leagueoflegends.com/cdn/15.17.1/img/item/${player.item6}.png`}
+          src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/item/${player.item6}.png`}
           alt="Extra Item"
           className="w-6 h-6 rounded"
         />
@@ -122,28 +124,40 @@ function MatchCard({ match, player }) {
       <div className="flex flex-row gap-1 text-sm">
         {/* Blue team */}
         <div className="flex flex-col">
-          {blueTeam.map((p) => (
-            <span
-              key={p.puuid}
-              className={`truncate max-w-[100px] ${
-                p.puuid === player.puuid ? "font-bold" : ""
-              }`}
-            >
-              {p.summonerName}
-            </span>
+          {blueTeam.map((p, idx) => (
+            <div key={idx} className="flex flex-row items-center gap-1">
+              <img
+                src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/champion/${p.championName}.png`}
+                alt=""
+                className="w-5 h-5 rounded-sm"
+              />
+              <span
+                className={`text-xs truncate w-20 ${
+                  p.puuid === player.puuid ? "font-bold" : ""
+                }`}
+              >
+                {p.riotIdGameName || p.summonerName}
+              </span>
+            </div>
           ))}
         </div>
         {/* Red team */}
         <div className="flex flex-col">
-          {redTeam.map((p) => (
-            <span
-              key={p.puuid}
-              className={`truncate max-w-[100px] ${
-                p.puuid === player.puuid ? "font-bold" : ""
-              }`}
-            >
-              {p.summonerName}
-            </span>
+          {redTeam.map((p, idx) => (
+            <div key={idx} className="flex flex-row items-center gap-1">
+              <img
+                src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/champion/${p.championName}.png`}
+                alt=""
+                className="w-5 h-5 rounded-sm"
+              />
+              <span
+                className={`text-xs truncate w-20 ${
+                  p.puuid === player.puuid ? "font-bold" : ""
+                }`}
+              >
+                {p.riotIdGameName || p.summonerName}
+              </span>
+            </div>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { DDRAGON_VERSION } from "../config/constants";
 
 function SearchResults({ results }) {
   const { userData, summonerData, server } = results;
@@ -18,7 +19,7 @@ function SearchResults({ results }) {
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center gap-4">
             <img
-              src={`https://ddragon.leagueoflegends.com/cdn/15.15.1/img/profileicon/${summonerData.profileIconId}.png`}
+              src={`https://ddragon.leagueoflegends.com/cdn/${DDRAGON_VERSION}/img/profileicon/${summonerData.profileIconId}.png`}
               alt="player icon"
               className="max-w-10 border-1 border-rose-400 rounded-md"
             />

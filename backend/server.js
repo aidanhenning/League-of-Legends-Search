@@ -30,7 +30,7 @@ app.get("/api/user/:region/:gameName/:tagLine", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (User): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -55,7 +55,7 @@ app.get("/api/summoner/:platform/:puuid", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (Summoner): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -80,7 +80,7 @@ app.get("/api/ranked/:platform/:puuid", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (Ranked): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -105,7 +105,7 @@ app.get("/api/mastery/:platform/:puuid", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (Mastery): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -130,7 +130,7 @@ app.get("/api/matches/:region/:puuid", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (Matches): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
@@ -155,7 +155,7 @@ app.get("/api/match/:region/:matchId", async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
-    console.error("Riot API Error: ", error.message);
+    console.error("Riot API Error (Match Data): ", error.message);
     res.status(500).json({ error: error.message });
   }
 });
