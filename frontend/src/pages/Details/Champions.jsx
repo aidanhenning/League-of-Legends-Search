@@ -39,6 +39,8 @@ function Champions() {
     <div className="min-h-screen bg-gray-700">
       <Navbar />
       <div className="w-3/5 m-auto">
+        {loading && <Lottie animationData={loadingAnimation} />}
+        {error && <p className="text-red-500">{error}</p>}
         {results && (
           <>
             <DetailsHeader results={results} />
@@ -62,13 +64,9 @@ function Champions() {
                 Mastery
               </NavLink>
             </div>
+            <div>{/* Add components here */}</div>
           </>
         )}
-        <div>
-          {/* Add components here */}
-          {loading && <Lottie animationData={loadingAnimation} />}
-          {error && <p className="text-red-500">{error}</p>}
-        </div>
       </div>
     </div>
   );

@@ -38,8 +38,6 @@ function Overview() {
     fetchData();
   }, []);
 
-  console.log(results);
-
   const soloDuo =
     results?.rankedData?.find((r) => r.queueType === "RANKED_SOLO_5x5") || null;
   const flex =

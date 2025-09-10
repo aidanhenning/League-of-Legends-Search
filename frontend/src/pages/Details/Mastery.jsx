@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import DetailsHeader from "../../components/DetailsHeader";
 import Lottie from "lottie-react";
 import loadingAnimation from "../../assets/Loading Dots Blue.json";
+import MasteryList from "../../components/MasteryList";
 
 function Mastery() {
   const [results, setResults] = useState(null);
@@ -35,10 +36,14 @@ function Mastery() {
     fetchData();
   }, []);
 
+  console.log(results);
+
   return (
     <div className="min-h-screen bg-gray-700">
       <Navbar />
       <div className="w-3/5 m-auto">
+        {loading && <Lottie animationData={loadingAnimation} />}
+        {error && <p className="text-red-500">{error}</p>}
         {results && (
           <>
             <DetailsHeader results={results} />
@@ -62,13 +67,11 @@ function Mastery() {
                 Mastery
               </NavLink>
             </div>
+            <div className="py-4">
+              <MasteryList masteryData={results.championMastery} />
+            </div>
           </>
         )}
-        <div>
-          {/* Add components here */}
-          {loading && <Lottie animationData={loadingAnimation} />}
-          {error && <p className="text-red-500">{error}</p>}
-        </div>
       </div>
     </div>
   );
