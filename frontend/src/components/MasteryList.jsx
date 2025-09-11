@@ -40,7 +40,7 @@ function MasteryList({ masteryData = [] }) {
   const top = masteryData.slice(0, 20);
 
   return (
-    <div className="flex flex-wrap justify-between gap-4">
+    <div className="flex flex-wrap justify-between gap-4 py-3 px-1 rounded-sm bg-gray-800">
       {top.map((m) => (
         <MasteryCard
           key={m.championId}

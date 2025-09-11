@@ -52,7 +52,7 @@ function Overview() {
         {results && (
           <>
             <DetailsHeader results={results} />
-            <div className="flex flex-row w-full mb-2 bg-gray-800">
+            <div className="flex flex-row w-full mb-2 rounded-sm bg-gray-800">
               <NavLink
                 to={`/lol/summoner/${serverId}/${gameName}/${tagLine}`}
                 className="py-1.5 px-3 text-white hover:cursor-pointer hover:bg-gray-700 border border-t-0 border-l-0 border-r-0 border-b-rose-400"

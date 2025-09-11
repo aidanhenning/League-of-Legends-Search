@@ -47,7 +47,7 @@ function Mastery() {
         {results && (
           <>
             <DetailsHeader results={results} />
-            <div className="flex flex-row w-full bg-gray-800">
+            <div className="flex flex-row w-full rounded-sm bg-gray-800">
               <NavLink
                 to={`/lol/summoner/${serverId}/${gameName}/${tagLine}`}
                 className="py-1.5 px-3 text-white hover:cursor-pointer hover:bg-gray-700"

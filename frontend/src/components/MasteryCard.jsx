@@ -19,7 +19,7 @@ function MasteryCard({ champion, championName }) {
           alt={`Mastery ${champion.championLevel}`}
           className="w-20 h-20 absolute top-16"
         />
-        <span className="w-5 h-5 absolute left-1/2 -translate-x-1/2 top-32 text-sm text-center text-white bg-gray-700 rounded-full">
+        <span className="w-4 h-4 absolute left-1/2 -translate-x-1/2 top-33 text-xs text-center text-white bg-gray-700 rounded-full">
           {champion.championLevel}
         </span>
       </div>
