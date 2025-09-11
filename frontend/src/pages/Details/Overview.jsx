@@ -74,7 +74,7 @@ function Overview() {
             </div>
 
             <div>
-              <div className="grid grid-cols-3 gap-2 text-white">
+              <div className="grid grid-cols-3 gap-2 pb-4 text-white">
                 {/* Left*/}
                 <div className="flex flex-col gap-2">
                   <RankedCard label="Ranked Solo/Duo" data={soloDuo} />
